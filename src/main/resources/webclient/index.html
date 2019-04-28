@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Jersey + Jetty Example</title>
+</head>
+<body>
+<script>
+    function updateTime() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/rest/time', true);
+        xhr.onreadystatechange = function() {
+            if ((xhr.readyState == 4) && (xhr.status == 200)) {
+                document.getElementById("time").textContent = xhr.responseText;
+            }
+        }
+        xhr.send();
+    }
+</script>
+<h1 style="color: blue;">Current time is: <div id="time" style="display: inline;"></div></h1>
+<input type="button" value="Update time" onclick="updateTime()">
+<script>updateTime()</script>
+</body>
+</html>
